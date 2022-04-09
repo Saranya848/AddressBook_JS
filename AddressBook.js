@@ -1,3 +1,4 @@
+"use strict";
 class ContactDetails {
     // Constructor
     constructor(...params) {
@@ -13,6 +14,7 @@ class ContactDetails {
   
     // getter and seter methods
   
+
     get firstName() {
       return this._firstName;
     }
@@ -87,7 +89,7 @@ class ContactDetails {
     }
   
     set phoneNumber(phoneNumber) {
-      let phoneRegex = RegExp("^[0-9]{2} [0-9]{10}$");
+      let phoneRegex = RegExp("^\\+(?:[0-9] ?){6,14}[0-9]$");
       if (phoneRegex.test(phoneNumber)) {
         this._phoneNumber = phoneNumber;
       } else throw "PhoneNumber should match the valid format";
@@ -121,15 +123,57 @@ class ContactDetails {
     }
   }
   
-  let contactDetails = new ContactDetails(
-    "Saranya",
-    "Siripurapu",
-    "Vizag",
-    "Vizag",
-    "Andhra Pradesh",
-    "535654",
-    "9242435566",
-    "saranya22@gmail.com"
-  );
-  
-  console.log(contactDetails.toString());
+  let addressBookArray = new Array();
+  try {
+    addressBookArray.push(
+      new ContactDetails(
+        "Saranya",
+        "Siripurapu",
+        "Vizag",
+        "Vizag",
+        "Andhra Pradesh",
+        "535654",
+        "+91 9242435566",
+        "saranya22@gmail.com"
+      )
+    );
+    addressBookArray.push(
+      new ContactDetails(
+        "Bill",
+        "Gates",
+        "BakerStreet",
+        "San Francisco",
+        "California",
+        "345654",
+        "+1 1234567890123",
+        "billgates@gmail.com"
+      )
+    );
+    addressBookArray.push(
+      new ContactDetails(
+        "Johnny",
+        "Depp",
+        "C22 Street",
+        "Santa Clara",
+        "Alaska",
+        "453567",
+        "+91 9876543211",
+        "jdepp@hotmail.com"
+      )
+    );
+    addressBookArray.push(
+      new ContactDetails(
+        "Brad",
+        "Pit",
+        "D33 Street",
+        "Lamington",
+        "Wales",
+        "232323",
+        "91 6545454546",
+        "braddpit@celeb.ac.us"
+      )
+    );
+  } catch (e) {
+    console.error(e);
+  }
+  console.log(addressBookArray.toString());
