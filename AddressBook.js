@@ -228,7 +228,7 @@ function editContact(contact, newValue, property) {
   console.log("Data before Editing :")
   console.log(contact.toString());
   
-  //editContact(contact,"Dnya","lastName");
+  editContact(contact,"Dnya","lastName");
 
   //UC5 - Delete the data by using first name
   function findAndDeleteContact(firstName) {
@@ -238,3 +238,7 @@ function editContact(contact, newValue, property) {
   
 findAndDeleteContact("Bill");
 console.log(addressBookArray);
+
+//UC6 - Count number of person's data in AddressBook
+let countContact = addressBookArray.reduce((count ) => count += 1 , 0);
+console.log(countContact);
