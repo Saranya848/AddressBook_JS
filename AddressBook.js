@@ -228,6 +228,13 @@ function editContact(contact, newValue, property) {
   console.log("Data before Editing :")
   console.log(contact.toString());
   
-  editContact(contact,"Dnya","lastName");
-  console.log("\n Data after Editing :")
-  console.log(contact.toString());
+  //editContact(contact,"Dnya","lastName");
+
+  //UC5 - Delete the data by using first name
+  function findAndDeleteContact(firstName) {
+    let contact = findContact(firstName);
+    addressBookArray.splice(addressBookArray.indexOf(contact), 1);
+}
+  
+findAndDeleteContact("Bill");
+console.log(addressBookArray);
